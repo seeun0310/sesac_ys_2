@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html 첫 수업 img a 태그, form 학습</title>
+</head>
+<body>
+
+    <img src="./huskie.jpg" width="500" height="500" alt="시베리안 허스키입니다." title="멍멍이"/>
+    <!-- 현재 위치는 "C:\Users\SBA_USER\Desktop\github\sesac_ys_2\HTMLCSSJS\huskie.jpg"
+
+        ./huskie.jpg : 현재 위치에 있는 "huskie.jpg파일에 접근하겠다" 
+        ../ : 현재 위치의 부모 폴더에 있는 (한 단계 앞 위치로 이동) -> sesac_ys_2폴더
+        alt는 파일이 열리지 않았을 때 뜨는 문구.
+        title은 커서를 이미지에 오래 두고 있으면 뜨는 문구. 귀여워
+    -->
+    <hr />
+
+    <a href="https://www.naver.com/" target="_self">naver</a>
+    <a href="./01_html.html" target="_blank">html</a>
+    <!-- 기본값은 현재 탭에서 링크 주소로 이동함.(self) _black 해주면 새 창에서 열림-->
+    <hr />
+
+    <h2>회원가입</h2>
+
+    <form>
+        이름 : <input type="text" name="name"/><br/>
+        <!-- input만 적어도 type 기본값이 text이긴 함 
+             textarea : text 박스 크기 지정      -->
+
+        이메일 : <input type="text" name="email"/><br/>
+        비밀번호 : <input type="password" name="pw"/><br/>
+        비밀번호 확인 : <input type="password" name="pw_check"/></br>
+
+        <input type="button" value="제출"/></br>
+        <button>제출</button>
+        <!-- 둘 다 버튼을 만드는 인풋 태그지만 두번째 방식이 더 일반적 -->
+
+        <br/>
+        취미를 선택하세요.
+        <input type="checkbox" name="cb" vaule="농구"/> 농구
+        <input type="checkbox" name="cb" value="축구"/> 축구
+        <input type="checkbox" name="cb" value="야구"/> 야구
+        <!-- name은 동일해야함. vaule 꼭 작성해야 함 (백엔드에 정보 전달용) --><br />
+
+        성별을 선택하세요.
+        <input type="radio" name="sex" value="남성"/> 남성
+        <input type="radio" name="sex" value="여성"/> 여성
+        <input type="radio" name="sex" value="트젠"/> 트젠
+        <!-- checkbox와 비슷하지만 하나만 고를 수 있고 박스가 동그라미임. 
+            마찬가지로 name 동일 --><br />
+
+        생년월일:<input type="date" name="birth" /><br />
+
+        색 : <input type="color" nanme="color" /><br />
+
+        범위설정 : <input type="range" name="range" min="0" max="10" step="2"/><br />
+
+        파일 : <input type="file" name="image" /><br />
+
+        <select name="select_option">
+            <optgroup label="옵션 1~2">
+                <option value="option1">옵션 1</option>
+                <option value="option2">옵션 2</option>
+            </optgroup>
+            <optgroup label="옵션 3~4">
+                <option value="option3">옵션 3</option>
+                <option value="option4" disabled>옵션 4</option>
+                <!-- disabled : 옵션은 보이지만 선택을 못하도록 설정 -->
+            </optgroup>
+        </select>
+        <!-- 선택 메뉴를 만드는 select -->
+        
+ 
+    </form>
+
+
+</body>
+</html>
