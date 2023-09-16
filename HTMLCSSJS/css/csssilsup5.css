@@ -5,3 +5,19 @@
 .stripes > div:nth-child(2n+1) {
     background-color: navy;
 }
+
+div.box::before{
+    content:"택시"
+}
+
+div.box::after{
+    content:"빨리"
+}
+
+input[disabled]{
+    background-color: red;
+}
+
+input:not([placeholder]){
+    background-color:blue;
+}

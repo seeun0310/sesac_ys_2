@@ -75,3 +75,30 @@ h1 ~ ul {
 /* 전체선택자도 사용가능. not(span) -> span이 
 아닌 것 모두 선택 */
 
+/* ::before */
+div.before-el::before{
+    content: "hot!";
+    color:red;
+    font-size: 12px;
+    border-radius:10px;
+    background-color: black;
+}
+
+/* ::after */
+div.after-el::after{
+    content: "best!";
+    color:blue;
+    font-size: 12px;
+}
+
+/* 의미 없는 요소 삽입. hot, best 등등 */
+
+
+input[type=text] {
+    background-color: orange;
+}
+/* input이면서 type이 text인 것. */
+
+input[name=name]{
+    background-color: bisque;
+}
