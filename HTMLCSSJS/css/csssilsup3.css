@@ -1,0 +1,29 @@
+hr + .lion {
+    background-color: red;
+}
+
+ul .lion {
+    background-color: greenyellow;
+}
+
+#tiger {
+    background-color: yellow;
+}
+
+.lion {
+    color: sienna;
+}
+
+div .lion {
+    font-weight:bold;
+}
+
+#tiger + li {
+    background-color: skyblue;
+}
+
+li.lion ~ li {
+    background-color: orange;
+}
+
+/* 어렵다 진짜 복습 열심히 해야겠다.... */
