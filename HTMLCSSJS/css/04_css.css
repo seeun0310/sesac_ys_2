@@ -1,0 +1,19 @@
+.box {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    animation: movetoright 2s linear 1s infinite alternate;
+}
+
+@keyframes movetoright{
+    0% {
+        left: 0px;
+    }
+    50% {
+        left:100px;
+    }
+    100% {
+        left:200px;
+    }
+}

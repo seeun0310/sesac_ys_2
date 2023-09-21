@@ -1,0 +1,42 @@
+.box {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    background-color: pink;
+    animation: muhan 3s linear 0s 6;
+}
+
+@keyframes muhan{
+    0% {
+        left: 0px; top: 0px;
+    }
+    25% {
+        left: 200px; top: 0px;
+    }
+    50% {
+        left: 200px;top: 200px; 
+    }
+    75% {
+        left:0px;top: 200px;
+    }
+    100% {
+        left:0px;top: 0px;
+    }
+}
+
+.hey {
+    animation: hey 10s linear 0s infinite;
+    position: relative;
+}
+
+@keyframes hey{
+    0% {
+        left: 3000px;
+        width: 200%;
+    }
+    100% {
+        left: 0px;
+        width:10%;
+    }
+}
