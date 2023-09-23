@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="KO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js 자료형</title>
+</head>
+<body>
+    <script>
+
+        // 기본 자료형 : 다른 변수에 값을 할당할 때 값을 복사함 - 깊은 복사
+        // 객체 자료형 : 값을 복사하지 않고 메모리 주소를 복사함 (주소 공유) - 얕은 복사
+
+        let num = 5;
+        let num2 = num;
+        num += 5;
+        console.log(num, num2); // 10, 5
+
+        let arr = [1,2,3,4,5];
+        let arr2 = arr;
+        arr2.reverse()
+        console.log(arr, arr2); // [5,4,3,2,1], [5,4,3,2,1] => 같이 리버스 됨
+        // 객체를 깊은 복사 하는 법 : let arr2 = arr.slice(); => 반환값을 넣은 새로운 배열이 됨
+
+
+        //js 표준 객체
+
+        // Date객체
+        let dt = new Date(); // 오늘 날짜 반환
+        console.log(dt);
+        console.log(dt.getMonth()+1); //+1해야 이번 달로 나옴
+        console.log(dt.getFullYear());
+
+        let expired = new Date("2023-09-21").getTime();
+        let today = new Date().getTime();
+
+        // Date객체 사용 예시
+        if(expired < today) {
+            console.log("만료일이 지났어요 ㅜㅜ");
+        }
+        else {
+            console.log("사용할 수 있어요");
+        }
+
+        //등등... 알아서 ppt보고 공부해라
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js DOM</title>
+</head>
+<body>
+    <!-- DOM : Document Object Model (문서 객체 모델) -->
+    <div id="box" class="box">hello~</div>
+    <div id="container" class="box item">hello~!!!</div>
+    <span>hello span</span>
+
+    <input type="text" name="email" />
+
+    <div id="box2">
+        <b>자식입니다 ^^</b>
+        박스 투 입니다~^^
+    </div>
+
+    <script> // 스크립트 위치 바디 아래로 잡아야 잘 선택됨.
+        // dom 속성
+        console.log(document.documentElement);
+        console.log(document.head);
+        console.log(document.title);
+        console.log(document.body); // 얘만 자주 쓰임
+        console.log(document.URL);
+        console.log(document.domain);
+
+        // 요소 선택 (할 줄 알아야 수정할 수 있다)
+        let elById = document.getElementById("box"); // ID 속성값. ID는 고유하므로 단수
+        console.log(elById);
+
+        let elByCl = document.getElementsByClassName("box"); // class 속성값. s가 붙음
+        console.log(elByCl);
+        console.log(elByCl[1]); //인덱싱 가능함
+
+        let elByTag = document.getElementsByTagName("span"); // 태그이름
+        console.log(elByTag);
+
+        let elByName = document.getElementsByName("email"); // name 속성값
+        console.log(elByName);
+
+        // css 선택자를 이용하여 요소를 선택
+        let quSel = document.querySelector(".box"); //하나만 선택한다
+        let quSelAll = document.querySelectorAll(".box");
+        console.log(quSel);
+        console.log(quSelAll);
+
+        // 변수 이용해서 요소 다루기!!
+        let elBox2 = document.getElementById("box2");
+        console.log(elBox2.innerText); //텍스트만 뽑아옴
+        console.log(elBox2.innerHTML); //텍스트 + 자식 태그까지 뽑아옴
+
+        elBox2.innerText = "제가 한 번 바꿔보겠습니다";
+        elBox2.innerHTML = "한 번 더 ~~~ <b>태그까지</b>";
+    </script>
+</body>
+</html>
