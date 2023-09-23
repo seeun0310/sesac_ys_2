@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js 반복문</title>
+</head>
+<body>
+    안녕하세융ㅎㅎ
+    <script>
+        // 반복문 for문 : 반복할 횟수를 특정할 수 있을 때
+        // 반복문 while문 : 반복할 횟수를 특정할 수 없을 때
+
+        //-------------------for문. 배열과 함께 많이 쓰임.----------------
+
+        
+
+        //-----------------------------while문----------------------------
+        while(true) { // ()안에 조건문 넣어도 되고, true를 넣으면 무한반복문이 됨!
+            let number = Number(prompt("양수를 입력하세요"));
+            if (number > 0) break; // break; : 반복문 바로 탈출
+            console.log("hello");
+        }
+        console.log("끝");
+
+
+        // continue;
+        for(let i = 0 ; i < 10 ; i++) {
+            if(i % 2 == 0) continue; // 만나는 순간 다음 줄 읽지 않고 반복문 시작으로 돌아감
+            console.log(i);
+        }
+
+
+        // do-while문
+        do {
+            number = Number(prompt("양수를 입력하세요"));
+        } while(number < 0)
+        // while문과는 다르게 조건에 관계 없이 처음 한 번은 무조건 실행한다.
+
+
+    </script>
+</body>
+</html>

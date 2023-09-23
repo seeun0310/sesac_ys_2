@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js 반복문 실습</title>
+</head>
+<body>
+    <script>
+
+        // 실습 1 ) 0~100 중 2 또는 5의 배수 총합 구하기 (정답 3050)
+        let j = 0;
+        for(let i = 0; i <= 100; i++) {
+            if (i % 2 == 0 || i % 5 == 0){
+            j += i
+        }
+        }
+        console.log(j);
+
+
+
+        // 실습 2 ) 10000까지의 수 중 13의 배수면서 홀수인 숫자 찾기
+        let i = 0;
+        while(i <= 10000){
+            if (i % 13 == 0 && i % 2 != 0){
+                console.log(i);
+                i++
+            }
+        }
+
+        // 실습 3 ) 구구단 만들기!
+        for(let i = 0; i < 10; i++){
+            for(let j = 0; j < 10; j++){
+                console.log(`${i}x${j}=${i*j}`);
+            }
+        }
+
+        // 선택 실습 별 찍기
+
+        let a = "";
+        let num = Number(prompt("별 몇 줄 찍을까나~"));
+        for(let i = 1; i <= num; i++) {
+            for(let j = 1; j <= i; j++){
+                a+="*";
+            }
+            a+="\n";
+        }
+        console.log(a);
+    </script>
+</body>
+</html>
