@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://kit.fontawesome.com/837ff3adc1.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+        /* 기본 스타일 */
+
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  display: inline-block;
+  margin-left: 20px;
+  font-size: 18px;
+}
+
+/* 미디어 쿼리 적용 */
+@media (max-width: 768px) {
+  .inner {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo {
+    width: 120px; /* 로고 크기 조정 */
+    text-align: center;
+    margin-bottom: 10px;
+    margin-right: 10px; /* 오른쪽으로 조금 이동 */
+  }
+
+  .menu {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu li {
+    display: block;
+    margin: 10px 0;
+  }
+
+  .header {
+    height: 60px;
+    background-color: skyblue; /* 배경 색상 변경 */
+  }
+}
+
+@media (min-width: 769px) {
+  .logo {
+    width: 25%; /* 로고 크기 조정 */
+    text-align: right; /* 로고 오른쪽 정렬 */
+    margin-right: 20px; /* 오른쪽으로 더 이동 */
+  }
+
+  .menu {
+    flex: 1;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .menu li {
+    margin: 0 10px;
+    display: inline-block;
+  }
+
+  .header {
+    height: 100px;
+    background-color: skyblue; /* 배경 색상 변경 */
+  }
+}
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="inner">
+        <div class="logo">
+          <i class="fa-solid fa-igloo"></i>
+        </div>
+        <ul class="menu">
+          <li>메뉴1</li>
+          <li>메뉴2</li>
+          <li>메뉴3</li>
+          <li>메뉴4</li>
+        </ul>
+      </div>
+    </header>
+  </body>
+</html>
