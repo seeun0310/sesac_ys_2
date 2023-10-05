@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js 이벤트 리스너</title>
+    <style>
+        .box {
+            background-color: violet;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="box"></div>
+
+    
+    <script>
+        let box = document.getElementsByClassName("box");
+
+        //jQuery의 on 메서드와 비슷
+        // on은 여러개 선택 가능
+        // addEventListener는 한 개만 선택 가능
+
+        box[0].addEventListener("click", function() {
+            alert("야호~");
+        });
+        
+    </script>
+</body>
+</html>
