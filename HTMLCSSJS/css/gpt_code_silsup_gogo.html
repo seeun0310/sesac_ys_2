@@ -9,77 +9,96 @@
       crossorigin="anonymous"
     ></script>
     <style>
-        /* 기본 스타일 */
+      :root {
+        --nav-height-lg: 100px;
+        --nav-height-sm: 60px;
+      }
 
-.menu {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+      body {
+        margin: 0;
+      }
 
-.menu li {
-  display: inline-block;
-  margin-left: 20px;
-  font-size: 18px;
-}
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
 
-/* 미디어 쿼리 적용 */
-@media (max-width: 768px) {
-  .inner {
-    flex-direction: column;
-    align-items: center;
-  }
+      /* HEADER */
+      header {
+        width: 100%;
+        height: var(--nav-height-lg);
+        z-index: 100;
+        /* position: fixed; */
+      }
 
-  .logo {
-    width: 120px; /* 로고 크기 조정 */
-    text-align: center;
-    margin-bottom: 10px;
-    margin-right: 10px; /* 오른쪽으로 조금 이동 */
-  }
+      /* 768px 보다 클때의 header */
+      header .inner {
+        background-color: lightblue;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
-  .menu {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+      /* LOGO */
+      header .inner .logo {
+        color: white;
+        font-size: 30px;
+        position: absolute;
+        left: 50px;
 
-  .menu li {
-    display: block;
-    margin: 10px 0;
-  }
+      }
 
-  .header {
-    height: 60px;
-    background-color: skyblue; /* 배경 색상 변경 */
-  }
-}
+      header .inner .menu {
+        display: flex;
+      }
 
-@media (min-width: 769px) {
-  .logo {
-    width: 25%; /* 로고 크기 조정 */
-    text-align: right; /* 로고 오른쪽 정렬 */
-    margin-right: 20px; /* 오른쪽으로 더 이동 */
-  }
+      header .inner .menu li {
+        margin: 0 15px;
+        font-weight: 800;
+        cursor: pointer;
+      }
 
-  .menu {
-    flex: 1;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+      /* 미디어 쿼리 작성 768px 이하일 때  */
 
-  .menu li {
-    margin: 0 10px;
-    display: inline-block;
-  }
+      @media screen and (max-width: 768px) {
+        header .inner .menu {
+        display: block;
+        text-align: center;
+        background-color: aliceblue;
+      }
 
-  .header {
-    height: 100px;
-    background-color: skyblue; /* 배경 색상 변경 */
-  }
-}
+      header .inner .menu li {
+        margin: 0 15px;
+        font-weight: 400;
+        padding: 10px 15px;
+      }
+
+      header .inner {
+        background-color: lightblue;
+        height: 100%;
+        display: block;
+        align-items: center;
+        justify-content: center;
+      }
+
+      header .inner .logo {
+        color: white;
+        font-size: 30px;
+        position: static;
+        height: 100%;
+        line-height: var(--nav-height-sm);
+        text-align: center;
+      }
+
+      header {
+        width: 100%;
+        height: var(--nav-height-sm);
+        z-index: 100;
+        /* position: fixed; */
+      }
+      }
     </style>
   </head>
   <body>

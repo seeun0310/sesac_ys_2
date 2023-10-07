@@ -6,8 +6,8 @@
     <title>이벤트 리스너 실습</title>
     <style>
         table, tr, td {
-            border: 2px solid black;
-            margin: 10px;
+            border: 1px solid black;
+            margin: 0px;
         }
     </style>
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
@@ -89,7 +89,7 @@
         $("td").on("click", function(){
             $("input[name=날짜]").val($(this).text());
             $("button").on("click", function(){
-                $("td").append($("input[name=내용]").text());
+                $("td").append(`<div>${$("input[name=내용]").text()}</div>`);
         });
         });
 
