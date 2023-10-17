@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form 유효성 검사 실습</title>
+</head>
+<body>
+    <form action="/post" method="post">
+        아이디<input type="text" name="id" pattern="^([a-z0-9]){5,}$" required/><br/>
+        비밀번호<input type="password" name="pw" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" required /><br/>
+        전화번호<input type="text" name="phoneNumber" pattern="^(010)-[0-9]{4}-[0-9]{4}$" required/><br/>
+        이름<input type="text" name="name" required /><br/>
+        성별<input type="radio" name="gender" value="남성" required/>남성
+        <input type="radio" name="gender" value="여성" />여성
+        <button>제출</button>
+    </form>
+</body>
+</html>
