@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>동적 파일 전송 실습</title>
+</head>
+<body>
+    <form name="dynamic-upload">
+        <input type="text" name="id" placeholder="아이디" /><br/>
+        <input type="text" name="pw" placeholder="비밀번호" /><br/>
+        <input type="text" name="name" placeholder="이름" /><br/>
+        <input type="text" name="age" placeholder="나이" /><br/>
+        <input type="file" name="userfile" /><br/><br/>
+        <button type="submit">회원가입</button> <button type="button" id="dynamic" onclick="dynamicUpload()">(동적 폼 전송)회원가입</button>
+    </form>
+    <div id="hihihi"></div>
+
+    <script>
+        function dynamicUpload() {
+            const form = document.forms["dynamic-upload"];
+            const formData = new FormData();
+            formData.append("id", form.id.value);
+            formData.append("pw", form.pw.value);
+            formData.append("name", form.name.value);
+            formData.append("age", form.age.value);
+            formData.append("userfile", form.userfile.files[0]);
+
+            // const data = {
+            //     id: form.id.value,
+            //     pw: form.pw.value,
+            //     name: form.name.value,
+            //     age: form.age.value,
+            // }
+
+            axios({
+                method: "post",
+                url: "/upload/dynamic",
+                data: formData,
+                headers: {
+                    "content-type" : "multipart/form-data"
+                }
+            }).then((res) => {
+                console.log(res.formData);
+                console.log(res.formData.id);
+                const result = document.getElementById("hihihi");
+                result.innerHTML = `<img src="/${res.formData.src}" width="150px;/>
+                <h2>${res.formData.id}님 환영합니다!</h2>
+                `
+                // <br/><h2>${res.data.id}님 환영합니다!</h2>`
+                // <br/><br/>비밀번호: ${res.data.pw}<br/>이름: ${res.data.name}<br/>나이: ${res.data.age}">`
+            })
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</body>
+</html>

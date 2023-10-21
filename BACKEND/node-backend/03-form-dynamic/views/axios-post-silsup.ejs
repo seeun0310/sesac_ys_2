@@ -36,25 +36,21 @@
 
         function axiosPost() {
             const data = getData();
-            const realId = "jungseeun0310";
-            const realPw = "rr212529";
-
 
             axios({
                 method: 'post',
                 url: '/axios',
                 data: data,
             }).then((res)=>{
-                if(data.id == realId && data.pw == realPw){
-                    console.log('성공');
-                    $("#message").html("axios post 로그인 성공입니다.").css("color", "blue");
-                }else{
-                    console.log('실패');
-                    $("#message").html("axios post 로그인 실패입니다.").css("color", "red");
-                }
+                const { isSuccess, msg } = data
+                console.log(isSuccess)
+                const element = document.querySelector(".message");
+                element.innerhtml = msg;
+                const color = isSuccess ? "blue" : "red";
+                element.style.color = color;
             })
             
-            
+            // 다시 수정해보자.............
         }
     </script>
 </body>
