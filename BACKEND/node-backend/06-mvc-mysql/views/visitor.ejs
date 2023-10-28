@@ -36,7 +36,7 @@
                 <td><%=data[i].id %></td>
             <td><%=data[i].username %></td>
             <td><%=data[i].comment %></td>
-            <td><button type="button" onclick="uqdateVisitor('<%= data[i].id %>', this.parentElement.parentElement)">수정</button></td>
+            <td><button type="button" onclick="updateVisitor('<%= data[i].id %>', this.parentElement.parentElement)">수정</button></td>
             <td><button type="button" onclick="deleteVisitor('<%= data[i].id %>', this.parentElement.parentElement)">삭제</button></td>
             </tr>
         <% } %>
@@ -87,7 +87,7 @@
         )
     }
 
-    function uqdateVisitor(id) {
+    function updateVisitor(id) {
 
         axios({
             method: 'get',
