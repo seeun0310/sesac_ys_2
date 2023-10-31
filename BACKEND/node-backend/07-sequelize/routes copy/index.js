@@ -2,6 +2,11 @@ const express = require("express");
 const router = express.Router();
 const controller = require("../controller/Cvisitor_mysql");
 
+// 임시 라우터
+router.get("/visitor/test/:id", controller.getTest);
+
+
+
 // ~~~~~:8000 -> index.ejs render
 router.get("/", controller.home);
 
