@@ -1,84 +1,85 @@
-const { Visitor } = require('../model/User');
+const Visitor = require("../model/User");
 
 exports.index = (req, res) => {
   res.render("index");
-}
+};
 
 exports.signup = async (req, res) => {
+  res.render("signup");
+  try {
+    const result = await Visitor.create({
+      id: req.body.id,
+      userid: req.body.userid,
+      name: req.body.name,
+      pw: req.body.pw,
+    });
+    console.log("signup result: ", result);
+    res.send({ result: true });
+  } catch (err) {
+    console.error(err);
+    console.log("실패다옹");
     res.render("signup");
-    // const visitor = Visitor.create({
-    //     id: "1",
-    //     userid: "jungseeun0310",
-    //     pw: "rr212529!!r",
-    //     name: "정세은"
-    //   });
-    const visit = await Visitor.create({
-        id: req.body.id,
-        userid: req.body.userid,
-        name: req.body.name,
-        pw: req.body.pw
-     })
-    .then((result) => {
-        console.log("signup result: ", result);
-        res.send({ result: true });
-    })
-}
+  }
+};
 
- exports.signin = (req, res) => {
+exports.signin = async (req, res) => {
+  res.render("signin");
+  try {
+    const result = await Visitor.findOne({
+      where: {
+        userid: req.body.userid,
+        pw: req.body.pw,
+      },
+    });
+    console.log("signin result: ", result);
+    res.send({ result: true });
+  } catch (err) {
+    console.log(req.body.userid, Visitor.pw);
+    console.log("로그인 실패");
     res.render("signin");
-     Visitor.findOne({
-         where: {
-             userid: req.body.userid,
-             pw: req.body.pw
-         }
-     }).then((result) => {
-         alert("로그인 성공");
-         res.render("profile");
-     }).catch((err) => {
-         alert("로그인 실패");
-         res.render("signin");
-     })
- }
+  }
+};
 
 exports.edit = (req, res) => {
-    res.render("profile");
-    Visitor.update({
-        userid: req.body.userid,
-        name: req.body.name,
-        pw: req.body.pw
+  res.render("profile");
+  Visitor.update(
+    {
+      userid: req.body.userid,
+      name: req.body.name,
+      pw: req.body.pw,
     },
     {
-        where: { userid: req.params.userid }
-    }).then((result) => {
-        console.log("profile update: ", result)
-        res.send(result);
-    })
-}
+      where: { userid: req.params.userid },
+    }
+  ).then((result) => {
+    console.log("profile update: ", result);
+    res.send(result);
+  });
+};
 
 exports.delete = (req, res) => {
-    res.render("profile");
-    Visitor.destroy({
-        where: {
-            userid: req.params.userid
-        }
-    }).then((result) => {
-        console.log("user delete: ", result);
-        res.send({ result: true });
-    })
-}
+  res.render("profile");
+  Visitor.destroy({
+    where: {
+      userid: req.params.userid,
+    },
+  }).then((result) => {
+    console.log("user delete: ", result);
+    res.send({ result: true });
+  });
+};
 
 exports.profile = (req, res) => {
-    res.render("profile");
-    Visitor.create({
-        userid: req.body.userid,
-        name: req.body.name,
-        pw: req.body.pw
-    }).then((result) => {
-        console.log("signup result: ", result);
-        res.send(result);
-    })
-}
-
+  res.render("profile");
+  Visitor.create({
+    userid: req.body.userid,
+    name: req.body.name,
+    pw: req.body.pw,
+  }).then((result) => {
+    console.log("signup result: ", result);
+    res.send(result);
+  });
+};
 
 // exports.signup = (req, res) => {
 //   res.render('signup')

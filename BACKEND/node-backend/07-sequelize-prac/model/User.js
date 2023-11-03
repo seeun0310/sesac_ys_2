@@ -43,39 +43,35 @@
 //   })
 // }
 
+function Visitor(sequelize, DataTypes) {
+  return sequelize.define(
+    "Visitor",
+    {
+      id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        allowNull: false,
+        autoIncrement: true,
+      },
+      userid: {
+        type: DataTypes.STRING(20),
+        allowNull: false,
+      },
+      pw: {
+        type: DataTypes.STRING(20),
+        allowNull: false,
+      },
+      name: {
+        type: DataTypes.STRING(20),
+        allowNull: false,
+      },
+    },
+    {
+      tableName: "Visitor",
+      freezeTableName: true,
+      timestamps: false,
+    }
+  );
+}
 
-async function Visitor(sequelize, DataTypes) {
-    return await sequelize.define(
-        "Visitor",
-        {
-            id: {
-                type: DataTypes.INTEGER,
-                primaryKey: true,
-                allowNull: false,
-                autoIncrement: true
-            },
-            userid: {
-                type: DataTypes.STRING(20),
-                allowNull: false,
-            },
-            pw: {
-                type: DataTypes.STRING(20),
-                allowNull: false
-            },
-            name: {
-                type: DataTypes.STRING(20),
-                allowNull: false
-            }
-        },
-        {
-            tableName: "Visitor",
-            freezeTableName: true,
-            timestamps: false,
-        }
-    )
-};
-
-
-
-// console.log(Visitor(Sequelize, DataTypes));
-module.exports = Visitor;
+module.exports = { Visitor };
