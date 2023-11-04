@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘은 그만보기 실습</title>
+    <script>
+        if (document.body.cookies) console.log("cookie O");
+            let options = "width = 800, height = 600, toolbar=no, location=no, status=no"
+            var lefts = Math.ceil((window.screen.width - 600)/2);
+            var tops = Math.ceil((window.screen.height - 400)/2);
+            let add = window.open("/popup", "광고", options);
+    </script>
+    <style>
+        body {
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+</body>
+</html>

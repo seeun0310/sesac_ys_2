@@ -24,62 +24,51 @@ exports.signup = async (req, res) => {
 
 exports.signin = async (req, res) => {
   res.render("signin");
-  try {
     const result = await Visitor.findOne({
       where: {
         userid: req.body.userid,
         pw: req.body.pw,
       },
-    });
-    console.log("signin result: ", result);
-    res.send({ result: true });
-  } catch (err) {
-    console.log(req.body.userid, Visitor.pw);
-    console.log("로그인 실패");
-    res.render("signin");
-  }
-};
+    }).then((result) => {
+      console.log();
+      if (result) res.send({ result: true, id: result.id});
+      else res.send({result: false});
+    })
+    };
+
+  exports.profile = (req, res) => {
+      Visitor.create({
+        userid: req.body.userid,
+        name: req.body.name,
+        pw: req.body.pw,
+      }).then((result) => {
+        console.log("signup result: ", result);
+        res.send(result);
+      });
+  };
 
 exports.edit = (req, res) => {
-  res.render("profile");
-  Visitor.update(
-    {
-      userid: req.body.userid,
-      name: req.body.name,
-      pw: req.body.pw,
-    },
-    {
-      where: { userid: req.params.userid },
-    }
-  ).then((result) => {
+  Visitor.update(req.body, {
+    where: {userid: req.body.userid}
+  }).then((result) => {
     console.log("profile update: ", result);
-    res.send(result);
+    if (result[0]) res.send({result: true});
+    else res.send({result: false});
   });
 };
 
 exports.delete = (req, res) => {
-  res.render("profile");
   Visitor.destroy({
     where: {
       userid: req.params.userid,
     },
   }).then((result) => {
     console.log("user delete: ", result);
-    res.send({ result: true });
+    if(result) res.send({ result: true });
+    else res.send({result: false});
   });
 };
 
-exports.profile = (req, res) => {
-  res.render("profile");
-  Visitor.create({
-    userid: req.body.userid,
-    name: req.body.name,
-    pw: req.body.pw,
-  }).then((result) => {
-    console.log("signup result: ", result);
-    res.send(result);
-  });
-};
 
 // exports.signup = (req, res) => {
 //   res.render('signup')

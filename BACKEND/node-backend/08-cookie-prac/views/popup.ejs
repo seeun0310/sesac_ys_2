@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>팝업</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div style="background-color:blue; position: absolute; left:0; top:0; right:0; height: 100px; z-index: 2;">
+        <div style="color: white; position: relative; text-align: center; top: 25%; font-size: 40px;">
+            안내
+        </div>
+    </div>
+    <div style="background-color: skyblue; position:absolute; width: 80%; height: 60%; left:10%; top:25%;">
+        <div style="text-align: center; position:relative; top: 45%; font-size: 30px; font-weight: bold;">
+        인터넷 익스플로러 지원 종료 안내
+        </div>
+    </div>
+    <div style="position:absolute; left: 5%; bottom: 5%;" onclick="noPopup();">
+        <input type="checkbox" id="todayClose" name="today_close" value="checkbox"/>오늘그만보기
+    </div>
+
+    <script>
+        function noPopup() {
+            const checkbox = document.getElementById("todayClose");
+            if(checkbox.checked) {
+                axios({
+                    method: 'post',
+                    url: '/close'
+                }).then((res)=>{
+                    console.log(res.data);
+                    self.close();
+                })
+            }
+            
+        }
+    </script>
+</body>
+</html>
