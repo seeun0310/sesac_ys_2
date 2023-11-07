@@ -5,4 +5,4 @@
 - git branch test (EX: 로그인 UI 완료)
 - git branch test (EX: 로그인 API)
 
-- git branch test2
+- git branch test2 수정
