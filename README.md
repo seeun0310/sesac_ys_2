@@ -1,4 +1,5 @@
-배고프다.....
+# sesac_ys_2
 
-혼자 푸쉬해보기...... ㄱㄱ
-wrsfasfasfasfasfsafaS
+새싹 용산캠 2기 수업용 코드
+
+- git branch test
