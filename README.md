@@ -6,4 +6,4 @@
 - git branch test (EX: 로그인 API)
 
 
-- git branch test2 conflict
+- pr test
