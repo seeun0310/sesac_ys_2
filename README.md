@@ -1,9 +1,3 @@
-# sesac_ys_2
+<h2>Sesac 용산 캠퍼스 웹 풀스택 개발자 과정 2기</h2>
 
-새싹 용산캠 2기 수업용 코드
-
-- git branch test (EX: 로그인 UI 완료)
-- git branch test (EX: 로그인 API)
-
-
-- git branch test2 conflict
+<h4>2023.09 ~</h4>
