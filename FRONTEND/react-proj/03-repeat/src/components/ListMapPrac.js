@@ -58,7 +58,7 @@ function GuestBook () {
 
     const [keyword, setKeyword] = useState("");
     const search = (keyword) => {
-        const newTitleObj = {title: title };
+        const newTitleObj = { title: title };
         const newWriterObj = { writer: writer };
         const newSearchList = guestList.filter((value)=>{
             return keyword in newWriterObj;

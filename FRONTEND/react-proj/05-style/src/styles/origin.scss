@@ -1,0 +1,62 @@
+$color-main: red;
+
+// mixin : 코드블록 함수처럼 하나로 묶어두고 재사용
+@mixin box-width($size) {
+    width: $size;
+    height: $size;
+}
+
+// include : mixin 사용
+.box1 {
+    @include box-width(100px);
+    background-color: blue;
+}
+
+.box2 {
+    @include box-width(200px);
+    background-color: green;
+}
+
+.scss-parents {
+    color: $color-main;
+    // width: 100% - 200;
+}
+
+.scss-parents {
+    ul {
+        background-color: black;
+        color: white;
+        li {
+            background-color: blue;
+        }
+    }
+    // scss-parents 선택
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.origin-sass {
+    display: flex;
+    .box {
+        @include box-width(100px);
+
+        &.red {
+            background-color: red;
+        }
+        &.orange {
+            background-color: orange;
+        }
+    }
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary {
+    @extend .btn;
+    background-color: blue;
+}
