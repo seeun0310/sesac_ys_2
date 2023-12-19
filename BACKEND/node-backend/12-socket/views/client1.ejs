@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>소켓</title>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <h3>소켓 연습</h3>
+    <button onclick="hello()">hello</button>
+
+    <button onclick="entry()">entry</button>
+
+    <h2>Hello World!</h2>
+    <button onclick="helloPrac()">hello</button>
+    <button onclick="studyPrac()">study</button>
+    <button onclick="byePrac()">bye</button>
+    <div id="text"></div>
+
+    <script>
+        const socket = io()
+        // 소켓을 이용해 데이터 전송하는 함수 : emit
+        // 소켓을 이용해 데이터 수신하는 이벤트 : on
+
+        function hello() {
+        // (전송할 이벤트 이름[, 전송할 데이터])
+        // 전송할 데이터의 형태는 자유롭게 (문자열, 숫자, 객체)
+        socket.emit("hello", {msg: "안녕하세열"})
+        }
+
+        socket.on("bye", (res)=>{
+            console.log(res);
+        })
+
+        function entry() {
+            socket.emit("entry")
+        }
+
+        socket.on("notice", (res)=>{
+            console.log(res.msg)
+        })
+
+        const text = document.getElementById("text");
+
+        function helloPrac() {
+            socket.emit("helloPrac", "hello")
+            socket.on("helloMsg", (res)=>{
+                text.innerHTML = res;
+            })
+        }
+
+        function studyPrac() {
+            socket.emit("studyPrac", "study")
+            socket.on("studyMsg", (res)=>{
+                text.innerHTML = res;
+            })
+        }
+
+        function byePrac() {
+            socket.emit("byePrac", "bye")
+            socket.on("byeMsg", (res)=>{
+                text.innerHTML = res;
+            })
+        }
+    </script>
+</body>
+</html>
